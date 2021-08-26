@@ -1,0 +1,169 @@
+
+       async get_card_reviews( file ) {
+
+            // BUGCATCH: 
+                if( !file )  return TEMPLATE
+
+            let content = await this.plugin.filesystem.file.get(file)
+
+            // BUGCATCH: 
+                if( !content ) return TEMPLATE
+                if( !content.split ) return TEMPLATE
+
+            let reviews = []
+            let lines   = content.split("\n")
+
+            let days_until_next_review
+            let normalized_days_until_next_review
+            let tokens
+
+            // line loop
+            for( let [index, line] of lines.entries() ) {
+
+                // Exception
+                if( line.indexOf("#leitner-box") === -1 ) continue
+
+                // line -> [ token, token ]
+                tokens = line.split(" ")
+
+                for( let [token_index, token] of tokens.entries() ) {
+
+                    // Remove 123(2) -> 123
+                    let review_grade
+                    let normalized_review_grade
+
+                    try {
+                        review_grade            = token.split("(")[1].split(")")[0]
+                        normalized_review_grade = Number( review_grade )
+                    } catch( e ) {
+                        review_grade            = null
+                        normalized_review_grade = 0.5
+                    }
+
+                    let normalized_date         = token.replace( /\(*.\)/, "")
+                    let review_date             = Number(normalized_date)
+
+                    // if we have push token, or the entire review like 123123(1)
+                    if( !isNaN(review_date) && token ) {
+                        reviews.push({date: review_date, grade: normalized_review_grade})
+                    }
+
+                }
+
+                // #leitner-box or #leitner-box <<0>>
+                if( tokens.length === 0 || tokens.length === 1 || tokens.length === 2 ) {
+                    normalized_days_until_next_review = 1
+                } else {
+
+                    if( tokens[tokens.length -1] === '' ) {
+                        tokens.pop()
+                    }
+
+                    days_until_next_review              = tokens[tokens.length -1].replace("<<", "").replace( ">>", "" )
+
+                    // if( isNaN( Number(days_until_next_review) )) {
+                    // if( tokens[tokens.length -2] ) {
+                        // days_until_next_review              = tokens[tokens.length -2].replace("<<", "").replace( ">>", "" )
+                    // }
+
+                    // if( !days_until_next_review ) days_until_next_review = 1
+                    normalized_days_until_next_review   = Number(days_until_next_review)
+
+                    // This can't be NaN
+                    if( isNaN(normalized_days_until_next_review) ) {
+                        normalized_days_until_next_review = tokens.length
+                    }
+
+                }
+
+                return {
+                    file: file,
+                    content: content,
+
+                    reviews: reviews,
+                    days_until_next_review: normalized_days_until_next_review 
+                }
+
+            }
+
+        },
+
+
+        get_e_factor( review ) {
+
+            let efactor = 2.5
+
+            if( review.reviews.length === 0 || review.reviews.length === 1 ) {
+
+                efactor = 2.5
+
+            } else {
+                // Gets efactor based on number of days
+                if( review.days_until_next_review === 0 ) {
+                    efactor = 2.5
+                } else {
+                    efactor = Math.log(review.days_until_next_review) * 1.6
+                }
+            }
+
+            return efactor
+
+        },
+
+        // 0 - 1 = 1 - 5 
+
+        // 0 = 1
+        // 0.2 = 2.5 = 2
+        // 0.5 = 2.5 = 3
+        // 0.8 = 2.5 = 4
+        // 1 = 5
+
+        // from 0-1 to 1-5 grade scale
+        normalized_grade( grade ) {
+
+            if( grade === 0 ) {
+                return 1
+            } else if( grade === 0.2 ) {
+                return 2
+            } else if( grade === 0.5 ) {
+                return 3
+            } else if( grade === 0.8 ) {
+                return 4
+            } else if( grade === 1 ) {
+                return 5
+            }
+
+            throw new Error( "Error: normalized_grade(<grade>) <grade> is not valid it needs to be from 0-1" )
+
+        },
+
+        calculate_e_factor( review ) {
+
+            let item = {
+                interval: review.days_until_next_review,
+                repetition: review.reviews.length,
+                efactor: this.get_e_factor( review ),
+             }       
+             // let supermemo_item = supermemo()
+             let supermemo_item = supermemo()
+         
+
+        },
+
+        from_review_to_string( review ) {
+
+            let string = `#leitner-box `
+
+            let reviews = review.reviews
+
+            for( let card_review of reviews ) {
+                string += `${card_review.date}(${card_review.grade}) `
+            }
+
+            string += `<<${review.days_until_next_review}>>`
+
+            return string
+
+        },
+
+

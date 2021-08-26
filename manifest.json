@@ -2,6 +2,7 @@
     "id": "spaced-repetition",
     "name": "Spaced Repetition",
     "description": "Review your notes in a spaced-repetition way",
+    "type": "front-end",
     "version": "1.0",
     "author": "Vik",
     "url": ""

@@ -7,31 +7,60 @@ class SpacedRepetition {
 
     constructor( api ) {
 
-        printf( "1" )
         this.api             = api
-        printf( "2" )
         this.graph           = api.graph.graph
 
-        printf( "3" )
         this.init()
+        this.add_things( api )
 
     }
 
+    add_things( api ) {
+
+        api.add_modal(
+            "spaced-repetition",
+            require("./SpacedRepetition.vue"),
+            {
+                box: {},
+                modal: {
+                    height: "80%",
+                    width: "70%",
+                    style: "border-radius: 10px;",
+                    scrollable: false
+                }
+            }
+
+        )
+        api.add_command(
+            "open-spaced-repetition-modal",
+            "Open spaced repetition modal",
+            "Will open the spaced repetition plugin modal",
+            function() {
+                api.Messager.emit( "modals.vue", "open", "spaced-repetition" )
+            },
+
+        )
+
+        api.add_key( "S", "Normal", "", "open-spaced-repetition-modal", true )
+
+
+        api.add_menu_item( "spaced-repetition", require("./calendar-time.svg"), "Open Spaced Repetition Modal", "open-spaced-repetition-modal", false )
+
+    }
+
+
     // <--------------------> Init <-------------------->  //
         async init() {
-        printf( "4" )
             await this.add_flashcards()
 
-        printf( "5" )
             let component = await require("./index.vue")
 
-        printf( "6" )
-            printf( "33333 this.data -> ", this.data )
+            /*
             this.api.add_box( "spaced-repetition-plugin", component, {
                 files: this.data || [],
                 example: "OLOLOL"
             })
-        printf( "7" )
+            */
 
 
 
@@ -52,9 +81,7 @@ class SpacedRepetition {
     // <--------------------> Scan <-------------------->  //
         async add_flashcards() {
 
-            printf( "before -> this.data -> ", this.data )
             this.data = await this.load()
-            printf( "after -> this.data -> ", this.data )
 
             // We already have our data, just listen
             if( this.data ) return
