@@ -1,28 +1,37 @@
 <template lang="pug" >
 .spaced-repetition-plugin
 
-    // p len: {{today.length}}
-    // p len: {{today.length - data.files.length}}
-
-    // p len: {{data.files.length - today.length}}
-
-    // p c :{{cards[pointer]}}
-    // p pointer: {{pointer}}
-    // button.button( @click="save" ) Save
-
     .front( v-show="location === 'front' " )
         p.is-size-3(v-if="today && today[pointer]") {{today[pointer]}}
+
         button.button( @click="flip" ) Reveal( SPC )
+
+
+        input.input( v-if="is_cloze" v-model="user_cloze_input" ) 
+        button.button( v-if="is_cloze" @click="compare_cloze" @keydown.enter="compare_cloze" ) Check
+        .cloze-final( v-if="cloze_stage === 'final' " )
+            p( v-if="is_cloze" ) Distance: {{distance}}
+            p {{cloze}}
+            img.img( v-if="is_cloze" src="@/assets/images/equal.svg" )
+            p {{user_cloze_input}}
 
     .back( v-show="location === 'back' " )
         p.is-size-3 {{today[pointer]}}
-        textarea( ref="textarea" )
+
+        component( v-if="box.id && box.get_component()" :is="box.get_component()" :box="box" :key="box.id" )
+
+        // textarea( ref="textarea" )
 
         button.button( @click="add_review(5)" ) Very Easy(1)
         button.button( @click="add_review(4)" ) Easy(2)
         button.button( @click="add_review(3)" ) Good(3)
         button.button( @click="add_review(2)" ) Hard(4)
         button.button( @click="add_review(1)" ) Very Hard(2)
+
+        br
+        br
+
+        button.button( @click="next" ) Skip
 
     br
 
@@ -31,19 +40,7 @@
 // eslint-disable-next-line
 const printf                                                    = console.log;
 
-// TODO: find a way of getting the time to answer a flashcard
-
 const { supermemo } = require('supermemo')
-
-
-            /*
-            let supermemo_item = {
-                interval: review.days_until_next_review,
-                repetition: review.reviews.length,
-                efactor: this.get_e_factor( review ),
-            }
-            */
-
 
 export default {
 
@@ -63,7 +60,16 @@ export default {
             answer_time: +new Date(),
 
             today: [],
+
             data: {},
+
+            // Cloze
+            is_cloze: false,
+            user_cloze_input: "",
+            cloze: "",
+            distance: -1,
+            cloze_stage: "init",
+            box: {},
         }
 
     },
@@ -74,10 +80,88 @@ export default {
 
     methods: {
 
+        set_box() {
+
+            let _this = this
+            let file  = this.today[this.pointer]
+
+            let box   = new this.plugin.classes.Box({ type: "text-editor", props: { file: file  }})
+                this.box = box
+
+            setTimeout( () => { _this.box.id = Math.random() }, 1000 )
+
+            return box
+        },
+
+
+        // <-------------------------> Utils <-------------------------> //
+         levenshtein( str1 = '', str2 = '' ) {
+
+             const track = Array(str2.length + 1).fill(null).map(() =>
+                     Array(str1.length + 1).fill(null));
+             for (let i = 0; i <= str1.length; i += 1) {
+                 track[0][i] = i;
+
+             }
+             for (let j = 0; j <= str2.length; j += 1) {
+                 track[j][0] = j;
+
+             }
+             for (let j = 1; j <= str2.length; j += 1) {
+                 for (let i = 1; i <= str1.length; i += 1) {
+                     const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+                     track[j][i] = Math.min(
+                             track[j][i - 1] + 1, // deletion
+                             track[j - 1][i] + 1, // insertion
+                             track[j - 1][i - 1] + indicator, // substitution
+
+                             );
+
+                 }
+
+             }
+             return track[str2.length][str1.length];
+
+        },
+        // <-------------------------> Utils <-------------------------> //
+
+
+        // <-------------------------> Cloze <-------------------------> //
+        compare_cloze() {
+
+            let user_input              = this.user_cloze_input
+
+            let cloze_actual_content    = this.content.split("{{c1::")
+            let cloze                   = cloze_actual_content[1]
+
+            let normalized_cloze        = cloze.replace( "}}", "" )
+                this.cloze                  = normalized_cloze
+
+            let distance = this.levenshtein( user_input, normalized_cloze )
+                this.distance = distance
+
+            this.cloze_stage = "final"
+
+        },
+
+        check_is_cloze( content ) {
+
+            if( !content ) return 
+            if( !content.indexOf ) return
+
+            if( content.indexOf("{{c1::") !== -1 )  {
+                this.is_cloze = true
+                this.plugin.set_mode("Insert")
+            }
+
+        },
+        // <-------------------------> Cloze <-------------------------> //
+
+
         // <-------------------------> Movement <-------------------------> //
         previous() {
 
-            this.$refs.textarea.innerHTML = ""
+            // this.$refs.textarea.innerHTML = ""
             this.pointer--
 
             this.answer_time    = +new Date()
@@ -86,12 +170,26 @@ export default {
             this.save()
         },
 
-        next() {
-            this.$refs.textarea.innerHTML = ""
-            this.pointer++
+        async next() {
 
-            this.answer_time    = +new Date()
-            this.location       = 'front'
+            // Reset + Update
+                this.pointer++
+                this.answer_time    = +new Date()
+                this.location       = 'front'
+
+            // Is Cloze?
+                this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
+                this.check_is_cloze( this.content )
+
+            // Cloze
+                this.user_cloze_input   = ""
+                this.cloze_stage        = "init"
+                this.is_cloze           = false
+                this.cloze              = ""
+
+            // BUGFIX: Update the content of the note, and don't stick with the last one
+                let _this = this
+                setTimeout( () => { _this.box.id = Math.random() }, 1000 )
 
             this.save()
         },
@@ -183,13 +281,21 @@ export default {
         // <-------------------------> Review Card <-------------------------> //
 
         // <-------------------------> Card <-------------------------> //
-        async flip() {
+        reveal_front() {
+            this.location = 'front'
+        },
+
+        reveal_back() {
+            this.location = 'back'
+            // await this.init_editor()
+        },
+
+        flip() {
 
             if( this.location === 'front' ) {
-                this.location = 'back'
-                await this.init_editor()
+                this.reveal_back()
             } else {
-                this.location = 'front'
+                this.reveal_front()
             }
 
         },
@@ -227,6 +333,11 @@ export default {
 
             }
             this.today = this.shuffle_array(this.today)
+
+            this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
+            this.check_is_cloze( this.content )
+
+            this.set_box()
 
             // UI
                 this.plugin.Messager.emit( "status-line", "set", "Getting today's flashcards: DONE" )
@@ -273,7 +384,13 @@ export default {
                 }
              
 
-            })
+             })
+             let t = new this.plugin.TextEditor( this.editor, {
+
+                 props: {
+                     file: this.today[this.pointer]
+                 },
+             })
 
             // this.editor.setOption( "tabSize", this.tab_size )
             // this.editor.setOption( "indentUnit", this.indent_unit )
@@ -293,16 +410,14 @@ export default {
                 return
             }
 
-            let content = await this.plugin.filesystem.file.get(this.today[this.pointer])
-            if( !content )  {
+            this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
+            if( !this.content )  {
                 printf( `ERROR: ${this.today[this.pointer]} is not defined }` )
                 this.errors.push( `Error: ${this.today[this.pointer]}'s content is null'` )
                 this.next()
             }
 
-            // let content = this.today[this.pointer].content
-
-            this.editor.setValue(content)
+            this.editor.setValue(this.content)
 
 
             // this.editor.setOption( "lineNumbers", true )
@@ -311,28 +426,12 @@ export default {
 
         },
 
-        has_one_day_passed() {
-
-            // get today's date. eg: "7/37/2007"
-            var date = new Date().toLocaleDateString();
-
-            // if there's a date in localstorage and it's equal to the above: 
-            // inferring a day has yet to pass since both dates are equal.
-            if( localStorage.yourapp_date == date  ) 
-                return false;
-
-            // this portion of logic occurs when a day has passed
-            localStorage.yourapp_date = date;
-
-            return true
-        },
-
         decay_all_card_schedules() {
 
             let schedules   = this.data.schedules
             let keys        = Object.keys(schedules)
 
-            let index = 0
+            let index       = 0
             let key
             let current_schedule
 

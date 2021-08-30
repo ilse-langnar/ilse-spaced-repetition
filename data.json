@@ -1,7 +1,10 @@
 {
     "decay_history": [
         "8/25/2021",
-        "8/26/2021"
+        "8/26/2021",
+        "8/27/2021",
+        "8/28/2021",
+        "8/29/2021"
     ],
     "schedules": {
         "How would you 'test' is the number in 'my-var' is equal 0(cloze).md": {
@@ -42,7 +45,7 @@
             },
             "answer_time": 2574,
             "date": 1629819095049,
-            "interval": 4,
+            "interval": 1,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -63,7 +66,7 @@
             },
             "answer_time": 5705,
             "date": 1629819166985,
-            "interval": 4,
+            "interval": 1,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -84,7 +87,7 @@
             },
             "answer_time": 88656,
             "date": 1629819481931,
-            "interval": 4,
+            "interval": 1,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -105,7 +108,7 @@
             },
             "answer_time": 25376,
             "date": 1629904948773,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.1799999999999997
         },
@@ -126,7 +129,7 @@
             },
             "answer_time": 4904,
             "date": 1629904752149,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -147,7 +150,7 @@
             },
             "answer_time": 3321,
             "date": 1629904952094,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.1799999999999997
         },
@@ -168,7 +171,7 @@
             },
             "answer_time": 5905,
             "date": 1629904983909,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -189,7 +192,7 @@
             },
             "answer_time": 20858,
             "date": 1629905004767,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -210,7 +213,7 @@
             },
             "answer_time": 3318,
             "date": 1629905008085,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -231,7 +234,7 @@
             },
             "answer_time": 3901,
             "date": 1629908210382,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 1.8599999999999997
         },
@@ -252,7 +255,7 @@
             },
             "answer_time": 591735,
             "date": 1629907039385,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -273,7 +276,7 @@
             },
             "answer_time": 3386,
             "date": 1629907042771,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -294,7 +297,7 @@
             },
             "answer_time": 96085,
             "date": 1629907138856,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -315,7 +318,7 @@
             },
             "answer_time": 4583,
             "date": 1629907143440,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -336,7 +339,7 @@
             },
             "answer_time": 20448,
             "date": 1629907163888,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -357,7 +360,7 @@
             },
             "answer_time": 9284,
             "date": 1629907173172,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -378,7 +381,7 @@
             },
             "answer_time": 8304,
             "date": 1629908025514,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.1799999999999997
         },
@@ -399,7 +402,7 @@
             },
             "answer_time": 3633,
             "date": 1629907260408,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -420,7 +423,7 @@
             },
             "answer_time": 8240,
             "date": 1629907268648,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -441,7 +444,7 @@
             },
             "answer_time": 4163,
             "date": 1629907272811,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -462,7 +465,7 @@
             },
             "answer_time": 6700,
             "date": 1629907279512,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -483,7 +486,7 @@
             },
             "answer_time": 6491,
             "date": 1629908310438,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -504,7 +507,7 @@
             },
             "answer_time": 127383,
             "date": 1629908437821,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -525,7 +528,7 @@
             },
             "answer_time": 6168,
             "date": 1629908443989,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -546,7 +549,7 @@
             },
             "answer_time": 2927,
             "date": 1629908446917,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -567,7 +570,7 @@
             },
             "answer_time": 4281,
             "date": 1629908451198,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -588,7 +591,7 @@
             },
             "answer_time": 8007,
             "date": 1629908571562,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.0399999999999996
         },
@@ -609,7 +612,7 @@
             },
             "answer_time": 3576,
             "date": 1629908467925,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -630,7 +633,7 @@
             },
             "answer_time": 11644,
             "date": 1629908583206,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.06
         },
@@ -651,7 +654,7 @@
             },
             "answer_time": 6416,
             "date": 1629908479573,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -672,7 +675,7 @@
             },
             "answer_time": 10466,
             "date": 1629908490039,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -693,7 +696,7 @@
             },
             "answer_time": 40976,
             "date": 1629908624182,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -735,7 +738,7 @@
             },
             "answer_time": 5367,
             "date": 1629908720076,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -756,7 +759,7 @@
             },
             "answer_time": 53024,
             "date": 1629908773101,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -777,7 +780,7 @@
             },
             "answer_time": 7606,
             "date": 1629908780708,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -819,7 +822,7 @@
             },
             "answer_time": 392398,
             "date": 1629909179595,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -840,7 +843,7 @@
             },
             "answer_time": 329623,
             "date": 1629909509218,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -861,7 +864,7 @@
             },
             "answer_time": 8488,
             "date": 1629909517706,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -882,7 +885,7 @@
             },
             "answer_time": 3944,
             "date": 1629909521650,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -903,7 +906,7 @@
             },
             "answer_time": 7352,
             "date": 1629909529007,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -924,7 +927,7 @@
             },
             "answer_time": 7347,
             "date": 1629909536355,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -966,7 +969,7 @@
             },
             "answer_time": 116460,
             "date": 1629909675411,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -987,7 +990,7 @@
             },
             "answer_time": 2671,
             "date": 1629909678082,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1008,7 +1011,7 @@
             },
             "answer_time": 656894,
             "date": 1629910334977,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1029,7 +1032,7 @@
             },
             "answer_time": 12143,
             "date": 1629910350058,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1050,7 +1053,7 @@
             },
             "answer_time": 5278,
             "date": 1629943244894,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1092,7 +1095,7 @@
             },
             "answer_time": 8584,
             "date": 1629943257934,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1113,7 +1116,7 @@
             },
             "answer_time": 3206,
             "date": 1629943261141,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1155,7 +1158,7 @@
             },
             "answer_time": 5215,
             "date": 1629943269798,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1176,7 +1179,7 @@
             },
             "answer_time": 4591,
             "date": 1629943274389,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1260,7 +1263,7 @@
             },
             "answer_time": 16536,
             "date": 1629943309174,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1281,7 +1284,7 @@
             },
             "answer_time": 4894,
             "date": 1629943314070,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1302,7 +1305,7 @@
             },
             "answer_time": 1470,
             "date": 1629943315540,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1323,7 +1326,7 @@
             },
             "answer_time": 37577,
             "date": 1629943353118,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1365,7 +1368,7 @@
             },
             "answer_time": 8096,
             "date": 1629943389062,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1386,7 +1389,7 @@
             },
             "answer_time": 3992,
             "date": 1629943393054,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1407,7 +1410,7 @@
             },
             "answer_time": 4528,
             "date": 1629943397583,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1428,7 +1431,7 @@
             },
             "answer_time": 3278,
             "date": 1629943400861,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1449,7 +1452,7 @@
             },
             "answer_time": 5721,
             "date": 1629943406582,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1512,7 +1515,7 @@
             },
             "answer_time": 5222,
             "date": 1629943440997,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1554,7 +1557,7 @@
             },
             "answer_time": 9416,
             "date": 1629943453318,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1575,7 +1578,7 @@
             },
             "answer_time": 3751,
             "date": 1629943457070,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1617,7 +1620,7 @@
             },
             "answer_time": 7720,
             "date": 1629943469486,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1638,7 +1641,7 @@
             },
             "answer_time": 5880,
             "date": 1629943475366,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1659,7 +1662,7 @@
             },
             "answer_time": 5528,
             "date": 1629943480894,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1722,7 +1725,7 @@
             },
             "answer_time": 6671,
             "date": 1629943502245,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -1743,7 +1746,7 @@
             },
             "answer_time": 4687,
             "date": 1629943506933,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1764,7 +1767,7 @@
             },
             "answer_time": 10847,
             "date": 1629943517789,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1785,7 +1788,7 @@
             },
             "answer_time": 3464,
             "date": 1629943521253,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1869,7 +1872,7 @@
             },
             "answer_time": 9135,
             "date": 1629943556349,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1890,7 +1893,7 @@
             },
             "answer_time": 7047,
             "date": 1629943563397,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1911,7 +1914,7 @@
             },
             "answer_time": 9448,
             "date": 1629943572845,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1932,7 +1935,7 @@
             },
             "answer_time": 4654,
             "date": 1629943577501,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1953,7 +1956,7 @@
             },
             "answer_time": 4633,
             "date": 1629943582134,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -1974,7 +1977,7 @@
             },
             "answer_time": 3887,
             "date": 1629943586021,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -1995,7 +1998,7 @@
             },
             "answer_time": 16160,
             "date": 1629943602181,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2016,7 +2019,7 @@
             },
             "answer_time": 7015,
             "date": 1629943609197,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2037,7 +2040,7 @@
             },
             "answer_time": 4344,
             "date": 1629943613541,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2058,7 +2061,7 @@
             },
             "answer_time": 3920,
             "date": 1629943617461,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2079,7 +2082,7 @@
             },
             "answer_time": 5520,
             "date": 1629943622981,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2100,7 +2103,7 @@
             },
             "answer_time": 4121,
             "date": 1629943627102,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2121,7 +2124,7 @@
             },
             "answer_time": 7251,
             "date": 1629943634354,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2184,7 +2187,7 @@
             },
             "answer_time": 8679,
             "date": 1629943679421,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2205,7 +2208,7 @@
             },
             "answer_time": 6023,
             "date": 1629943685445,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2226,7 +2229,7 @@
             },
             "answer_time": 4104,
             "date": 1629943689549,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2268,7 +2271,7 @@
             },
             "answer_time": 5200,
             "date": 1629943700765,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2310,7 +2313,7 @@
             },
             "answer_time": 3264,
             "date": 1629943839148,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2331,7 +2334,7 @@
             },
             "answer_time": 4337,
             "date": 1629943843485,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2373,7 +2376,7 @@
             },
             "answer_time": 3392,
             "date": 1629943860412,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2394,7 +2397,7 @@
             },
             "answer_time": 7024,
             "date": 1629943867437,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2415,7 +2418,7 @@
             },
             "answer_time": 4129,
             "date": 1629943871566,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2436,7 +2439,7 @@
             },
             "answer_time": 4430,
             "date": 1629943875996,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2457,7 +2460,7 @@
             },
             "answer_time": 5000,
             "date": 1629943880997,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2478,7 +2481,7 @@
             },
             "answer_time": 5008,
             "date": 1629943886005,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2499,7 +2502,7 @@
             },
             "answer_time": 2480,
             "date": 1629943888485,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2520,7 +2523,7 @@
             },
             "answer_time": 2983,
             "date": 1629943891468,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2541,7 +2544,7 @@
             },
             "answer_time": 5241,
             "date": 1629943896709,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2562,7 +2565,7 @@
             },
             "answer_time": 1289,
             "date": 1629943897998,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2604,7 +2607,7 @@
             },
             "answer_time": 5600,
             "date": 1629943914220,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2625,7 +2628,7 @@
             },
             "answer_time": 3648,
             "date": 1629943917868,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2646,7 +2649,7 @@
             },
             "answer_time": 3040,
             "date": 1629943920908,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2667,7 +2670,7 @@
             },
             "answer_time": 11864,
             "date": 1629943932772,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2751,7 +2754,7 @@
             },
             "answer_time": 2223,
             "date": 1629943958995,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2772,7 +2775,7 @@
             },
             "answer_time": 3106,
             "date": 1629943962101,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2793,7 +2796,7 @@
             },
             "answer_time": 8607,
             "date": 1629943970708,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2814,7 +2817,7 @@
             },
             "answer_time": 1533,
             "date": 1629943972242,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2835,7 +2838,7 @@
             },
             "answer_time": 7586,
             "date": 1629943979828,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2856,7 +2859,7 @@
             },
             "answer_time": 4424,
             "date": 1629943984252,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2877,7 +2880,7 @@
             },
             "answer_time": 3081,
             "date": 1629943987333,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2898,7 +2901,7 @@
             },
             "answer_time": 6871,
             "date": 1629943994204,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -2919,7 +2922,7 @@
             },
             "answer_time": 2457,
             "date": 1629943996661,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -2940,7 +2943,7 @@
             },
             "answer_time": 3836,
             "date": 1629944000497,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2961,7 +2964,7 @@
             },
             "answer_time": 2995,
             "date": 1629944003492,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -2982,7 +2985,7 @@
             },
             "answer_time": 5488,
             "date": 1629944008980,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3024,7 +3027,7 @@
             },
             "answer_time": 7889,
             "date": 1629944021189,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3066,7 +3069,7 @@
             },
             "answer_time": 11416,
             "date": 1629944037309,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3171,7 +3174,7 @@
             },
             "answer_time": 3992,
             "date": 1629944068484,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3192,7 +3195,7 @@
             },
             "answer_time": 3304,
             "date": 1629944071788,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3213,7 +3216,7 @@
             },
             "answer_time": 4648,
             "date": 1629944076436,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3234,7 +3237,7 @@
             },
             "answer_time": 7312,
             "date": 1629944083748,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3255,7 +3258,7 @@
             },
             "answer_time": 3344,
             "date": 1629944087092,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3276,7 +3279,7 @@
             },
             "answer_time": 5982,
             "date": 1629944093076,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3297,7 +3300,7 @@
             },
             "answer_time": 5960,
             "date": 1629944099036,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3318,7 +3321,7 @@
             },
             "answer_time": 2945,
             "date": 1629944101982,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3339,7 +3342,7 @@
             },
             "answer_time": 4246,
             "date": 1629944106228,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3360,7 +3363,7 @@
             },
             "answer_time": 4014,
             "date": 1629944110244,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3381,7 +3384,7 @@
             },
             "answer_time": 15432,
             "date": 1629944125676,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3402,7 +3405,7 @@
             },
             "answer_time": 6183,
             "date": 1629944131860,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3444,7 +3447,7 @@
             },
             "answer_time": 5889,
             "date": 1629944141173,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3465,7 +3468,7 @@
             },
             "answer_time": 7222,
             "date": 1629944148396,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3486,7 +3489,7 @@
             },
             "answer_time": 5511,
             "date": 1629944153908,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3507,7 +3510,7 @@
             },
             "answer_time": 24807,
             "date": 1629944178716,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3549,7 +3552,7 @@
             },
             "answer_time": 2929,
             "date": 1629944192245,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3675,7 +3678,7 @@
             },
             "answer_time": 3968,
             "date": 1629944227516,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3717,7 +3720,7 @@
             },
             "answer_time": 3281,
             "date": 1629944234500,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3738,7 +3741,7 @@
             },
             "answer_time": 25071,
             "date": 1629944259571,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3759,7 +3762,7 @@
             },
             "answer_time": 3880,
             "date": 1629944263451,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3801,7 +3804,7 @@
             },
             "answer_time": 4688,
             "date": 1629944284356,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3822,7 +3825,7 @@
             },
             "answer_time": 6192,
             "date": 1629944290548,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3843,7 +3846,7 @@
             },
             "answer_time": 5040,
             "date": 1629944295588,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3864,7 +3867,7 @@
             },
             "answer_time": 5103,
             "date": 1629944300691,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3906,7 +3909,7 @@
             },
             "answer_time": 2398,
             "date": 1629944307428,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -3927,7 +3930,7 @@
             },
             "answer_time": 3488,
             "date": 1629944310916,
-            "interval": 5,
+            "interval": 2,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3948,7 +3951,7 @@
             },
             "answer_time": 10261,
             "date": 1629978607194,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -3969,7 +3972,7 @@
             },
             "answer_time": 230497,
             "date": 1629978837691,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -3990,7 +3993,7 @@
             },
             "answer_time": 113810,
             "date": 1629978951501,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4011,7 +4014,7 @@
             },
             "answer_time": 5004,
             "date": 1629978956506,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4032,7 +4035,7 @@
             },
             "answer_time": 5433,
             "date": 1629978961939,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4053,7 +4056,7 @@
             },
             "answer_time": 4095,
             "date": 1629978966034,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4074,7 +4077,7 @@
             },
             "answer_time": 12129,
             "date": 1629978978163,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4095,7 +4098,7 @@
             },
             "answer_time": 4527,
             "date": 1629978982690,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4116,7 +4119,7 @@
             },
             "answer_time": 8599,
             "date": 1629978991290,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4137,7 +4140,7 @@
             },
             "answer_time": 4407,
             "date": 1629978995698,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4158,7 +4161,7 @@
             },
             "answer_time": 15481,
             "date": 1629979011179,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4179,7 +4182,7 @@
             },
             "answer_time": 25896,
             "date": 1629979037076,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -4200,7 +4203,7 @@
             },
             "answer_time": 8957,
             "date": 1629979046035,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4221,7 +4224,7 @@
             },
             "answer_time": 3599,
             "date": 1629979049635,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4242,7 +4245,7 @@
             },
             "answer_time": 91016,
             "date": 1629979140651,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4263,7 +4266,7 @@
             },
             "answer_time": 6086,
             "date": 1629979146738,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -4284,7 +4287,7 @@
             },
             "answer_time": 2735,
             "date": 1629979149474,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4305,7 +4308,7 @@
             },
             "answer_time": 5856,
             "date": 1629979155330,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4326,7 +4329,7 @@
             },
             "answer_time": 7885,
             "date": 1629979163216,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -4347,7 +4350,7 @@
             },
             "answer_time": 6100,
             "date": 1629979169316,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 2.1799999999999997
         },
@@ -4368,7 +4371,7 @@
             },
             "answer_time": 4639,
             "date": 1629979173955,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4389,7 +4392,7 @@
             },
             "answer_time": 9606,
             "date": 1629979183563,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -4410,7 +4413,7 @@
             },
             "answer_time": 8263,
             "date": 1629979191826,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4431,7 +4434,7 @@
             },
             "answer_time": 8192,
             "date": 1629979200019,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 2.1799999999999997
         },
@@ -4452,7 +4455,7 @@
             },
             "answer_time": 5648,
             "date": 1629979205667,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4473,7 +4476,7 @@
             },
             "answer_time": 267807,
             "date": 1629979473474,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.5
         },
@@ -4494,7 +4497,7 @@
             },
             "answer_time": 9788,
             "date": 1629979483263,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.6
         },
@@ -4515,7 +4518,7 @@
             },
             "answer_time": 7059,
             "date": 1629979490323,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4536,7 +4539,7 @@
             },
             "answer_time": 192916,
             "date": 1629979683242,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4557,7 +4560,7 @@
             },
             "answer_time": 3671,
             "date": 1629979686914,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4578,7 +4581,7 @@
             },
             "answer_time": 5832,
             "date": 1629979692746,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 2.1799999999999997
         },
@@ -4599,7 +4602,7 @@
             },
             "answer_time": 6089,
             "date": 1629979698835,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4620,7 +4623,7 @@
             },
             "answer_time": 6465,
             "date": 1629979815749,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4641,7 +4644,7 @@
             },
             "answer_time": 3606,
             "date": 1629979819355,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4662,7 +4665,7 @@
             },
             "answer_time": 310695,
             "date": 1629980130050,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4683,7 +4686,7 @@
             },
             "answer_time": 222705,
             "date": 1629980352755,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4704,7 +4707,7 @@
             },
             "answer_time": 4032,
             "date": 1629980356787,
-            "interval": 6,
+            "interval": 3,
             "repetition": 2,
             "efactor": 2.36
         },
@@ -4725,7 +4728,7 @@
             },
             "answer_time": 34959,
             "date": 1629980391746,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 1.96
         },
@@ -4746,9 +4749,891 @@
             },
             "answer_time": 394255,
             "date": 1629980786002,
-            "interval": 1,
+            "interval": 0,
             "repetition": 0,
             "efactor": 2.1799999999999997
+        },
+        "HTML sub.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 81244
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 81244
+            },
+            "answer_time": 81244,
+            "date": 1629993829663,
+            "interval": 3,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "Dropbox rewards storage for people who do marketing.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.5,
+                    "answer_time": 2903
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.5,
+                "answer_time": 2903
+            },
+            "answer_time": 2903,
+            "date": 1630030945607,
+            "interval": 3,
+            "repetition": 2,
+            "efactor": 2.5
+        },
+        "How does the flex-js lexer.addDefinition( (..), (..) ) works(..).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 4583
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 4583
+            },
+            "answer_time": 4583,
+            "date": 1630030950190,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "彼女はよく旅行に行きます。.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 3495
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 3495
+            },
+            "answer_time": 3495,
+            "date": 1630030953687,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "他.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 3266
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 3266
+            },
+            "answer_time": 3266,
+            "date": 1630030956953,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "Ich bin zu Hause.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 5855
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 5855
+            },
+            "answer_time": 5855,
+            "date": 1630031075319,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "To use a regular expression, the server name must start with the tilde character(~).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 8671
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 8671
+            },
+            "answer_time": 8671,
+            "date": 1630031083990,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "To make it more convenient, fuzzy completion can be triggered if the word before the cursor ends with the trigger sequence which is by default **.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 5161
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 5161
+            },
+            "answer_time": 5161,
+            "date": 1630031089151,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "How does a 'character class' in RegExp with a range looks like(...).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 9315
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 9315
+            },
+            "answer_time": 9315,
+            "date": 1630031396422,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "Find the number of send transactions in the 'transactions' collection in MongoDB(cloze).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 5461
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 5461
+            },
+            "answer_time": 5461,
+            "date": 1630031531886,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "First, it checks the DNS local cache, to see if the domain has already been resolved recently..md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 35480
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 35480
+            },
+            "answer_time": 35480,
+            "date": 1630075190797,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "in mongoose, what arguments does the model receive(...).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 1.96,
+                    "answer_time": 99747
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "answer_time": 99747
+            },
+            "answer_time": 99747,
+            "date": 1630075290544,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 1.96
+        },
+        "docker is just a superpower that let's me  build larger, more complex applications. That's why it's worth learning.  It raises the ceiling of what I'm able to create.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 7051
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 7051
+            },
+            "answer_time": 7051,
+            "date": 1630075300780,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "How would you limit a wget rate to 20kilobytes(...).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 3863
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 3863
+            },
+            "answer_time": 3863,
+            "date": 1630075304644,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "You can do stuff inside of data() and vuejs, and then return an object.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.5,
+                    "answer_time": 25185
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.5,
+                "answer_time": 25185
+            },
+            "answer_time": 25185,
+            "date": 1630075474915,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.5
+        },
+        "How would you get help for a command like 'drop table' in 'psql'(cloze).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 138723
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 138723
+            },
+            "answer_time": 138723,
+            "date": 1630075883067,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "How would you use 'nginx' as a 'reverse proxy' for 'localhost": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 3791
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 3791
+            },
+            "answer_time": 3791,
+            "date": 1630075886858,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "How do you count the number of documents in a collection in MongoDB.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 6317
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 6317
+            },
+            "answer_time": 6317,
+            "date": 1630075893177,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "When making parse server applications that need to host binary file, you can make an admin board, so you can upload it yourself.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.5,
+                    "answer_time": 6105
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.5,
+                "answer_time": 6105
+            },
+            "answer_time": 6105,
+            "date": 1630075899282,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.5
+        },
+        "コ.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 2160
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 2160
+            },
+            "answer_time": 2160,
+            "date": 1630075901442,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "Automated deployment with git(repo=notyworkers.git)(steps).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 6500
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 6500
+            },
+            "answer_time": 6500,
+            "date": 1630076014545,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "かばん.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.5,
+                    "answer_time": 7543
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.5,
+                "answer_time": 7543
+            },
+            "answer_time": 7543,
+            "date": 1630076026025,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.5
+        },
+        "中国.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 5354
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 5354
+            },
+            "answer_time": 5354,
+            "date": 1630076294473,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "楽しい.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 1.96,
+                    "answer_time": 8380
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "answer_time": 8380
+            },
+            "answer_time": 8380,
+            "date": 1630076372228,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 1.96
+        },
+        "when a long trend is broken,the counter trend move is typically very violent.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 5667
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 5667
+            },
+            "answer_time": 5667,
+            "date": 1630076377896,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "You can also pass a simple query selector to the find method. A query selector is a document that’s used to match against all documents in the collection.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 7752
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 7752
+            },
+            "answer_time": 7752,
+            "date": 1630076385649,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "飲みます.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 1.96,
+                    "answer_time": 6167
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "answer_time": 6167
+            },
+            "answer_time": 6167,
+            "date": 1630076391817,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 1.96
+        },
+        "Use only 1 perfume so people will associate it with you.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 3912
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 3912
+            },
+            "answer_time": 3912,
+            "date": 1630076395729,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "During a stream, node.js will automatically create a buffer.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 5125
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 5125
+            },
+            "answer_time": 5125,
+            "date": 1630076400857,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "頑張って.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 1.96,
+                    "answer_time": 4046
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "answer_time": 4046
+            },
+            "answer_time": 4046,
+            "date": 1630076404905,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 1.96
+        },
+        "The image is a read-only file that’s created based on the Dockerfile.md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 3960
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 3960
+            },
+            "answer_time": 3960,
+            "date": 1630076408867,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "You can use a small bottle to measure things, so when cooking you know what to do.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 3941
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 3941
+            },
+            "answer_time": 3941,
+            "date": 1630076412808,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "Make a coffee or tea and bring it to work to test if it wakes you up or not..md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 3890
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 3890
+            },
+            "answer_time": 3890,
+            "date": 1630076416699,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "Your ability to choose between the important and the unimportant is the key determinant of your success in life and work.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 4363
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 4363
+            },
+            "answer_time": 4363,
+            "date": 1630076421064,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "How would you make the 'parameter' 'age' option in 'lisp'(cloze).md": {
+            "reviews": [
+                {
+                    "interval": 1,
+                    "repetition": 0,
+                    "efactor": 2.1799999999999997,
+                    "answer_time": 19643
+                }
+            ],
+            "supermemo_item": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "answer_time": 19643
+            },
+            "answer_time": 19643,
+            "date": 1630076962439,
+            "interval": 0,
+            "repetition": 0,
+            "efactor": 2.1799999999999997
+        },
+        "zwischen.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 14719
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 14719
+            },
+            "answer_time": 14719,
+            "date": 1630115056710,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "Alternatively, prefix a search term with a single quote, like 'string , to opt for exact matches only, or run as fzf --exact.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 9110
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 9110
+            },
+            "answer_time": 9110,
+            "date": 1630115065821,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "DT Oscillator (DTosc).md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 5424
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 5424
+            },
+            "answer_time": 5424,
+            "date": 1630115071245,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "あなた の バッグ は 何色 です か?.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 1026353
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 1026353
+            },
+            "answer_time": 1026353,
+            "date": 1630116097598,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "Don't have a 'serve' environment, have a tmux script with your stuff.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 10287
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 10287
+            },
+            "answer_time": 10287,
+            "date": 1630116120854,
+            "interval": 4,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "High volume points to strong price trends.md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 5853
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 5853
+            },
+            "answer_time": 5853,
+            "date": 1630280031437,
+            "interval": 6,
+            "repetition": 2,
+            "efactor": 2.36
+        },
+        "A view is what we refer to as a HTML page. They are called views because of the MVC design pattern(express.js).md": {
+            "reviews": [
+                {
+                    "interval": 6,
+                    "repetition": 2,
+                    "efactor": 2.36,
+                    "answer_time": 9148
+                }
+            ],
+            "supermemo_item": {
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.36,
+                "answer_time": 9148
+            },
+            "answer_time": 9148,
+            "date": 1630280119317,
+            "interval": 6,
+            "repetition": 2,
+            "efactor": 2.36
         }
     },
     "files": [

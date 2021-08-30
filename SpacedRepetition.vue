@@ -3,30 +3,30 @@
     br
 
     .columns
-        .column.is-2
+        .column.is-2.sections
             p Sections:
 
-            .configuration-item( :style="get_option_style('review')" @click="select_option('review')" )
+            .item( :style="get_option_style('review')" @click="select_option('review')" )
                 img.img( src="./eye.svg" title="" )
                 p Review
 
-            .configuration-item( :style="get_option_style('cards')" @click="select_option('cards')" )
+            .item( :style="get_option_style('cards')" @click="select_option('cards')" )
                 img.img( src="./card.svg" title="" )
                 p Cards
 
-            .configuration-item( :style="get_option_style('scan')" @click="select_option('scan')" )
+            .item( :style="get_option_style('scan')" @click="select_option('scan')" )
                 img.img( src="./list-search.svg" title="" )
                 p Scan
 
-            .configuration-item( :style="get_option_style('schedules')" @click="select_option('schedules')" )
+            .item( :style="get_option_style('schedules')" @click="select_option('schedules')" )
                 img.img( src="./calendar-time.svg" title="" )
                 p Schedules
 
-            .configuration-item( :style="get_option_style('statistics')" @click="select_option('statistics')"  )
+            .item( :style="get_option_style('statistics')" @click="select_option('statistics')"  )
                 img.img( src="./chart-bar.svg" title="" )
                 p Statistics
 
-            .configuration-item( :style="get_option_style('knowledge-tree')" @click="select_option('knowledge-tree')" )
+            .item( :style="get_option_style('knowledge-tree')" @click="select_option('knowledge-tree')" )
                 img.img( src="@/assets/images/git-tree.svg" title="" )
                 p Knowledge Tree
 
