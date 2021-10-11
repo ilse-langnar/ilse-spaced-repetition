@@ -1,25 +1,31 @@
 
 
-const printf = console.log
 
 const TAG_NAME = "#leitner-box"
-class SpacedRepetition {
+class SpacedRepetition extends Plugin {
 
-    constructor( api ) {
+    constructor(  ) {
+        super()
 
-        this.api             = api
-        this.graph           = api.graph.graph
+        const printf = console.log
 
-        this.init()
-        this.add_things( api )
+        alert( "Lqwdionqdionqdionqdw" )
+        printf( "I'm the spaced repetition plugin" )
+
+        // this.api             = api
+        // this.graph           = api.graph.graph
+
+        // this.init()
+        // this.add_things( api )
 
     }
 
     add_things( api ) {
 
+        printf( "@@@@@@@@" )
         api.add_modal(
             "spaced-repetition",
-            require("./SpacedRepetition.vue"),
+            api.require("./SpacedRepetition.vue"),
             {
                 box: {},
                 modal: {
@@ -31,12 +37,15 @@ class SpacedRepetition {
             }
 
         )
+
+        api.add_box( "Spaced Repetition", api.require("./index.vue"), {} )
+
         api.add_command(
             "open-spaced-repetition-modal",
             "Open spaced repetition modal",
             "Will open the spaced repetition plugin modal",
             function() {
-                api.Messager.emit( "modals.vue", "open", "spaced-repetition" )
+                api.Messager.emit( "modals.vue", "open", { target: "spaced-repetition"})
             },
 
         )
@@ -44,7 +53,7 @@ class SpacedRepetition {
         api.add_key( "S", "Normal", "", "open-spaced-repetition-modal", true )
 
 
-        api.add_menu_item( "spaced-repetition", require("./calendar-time.svg"), "Open Spaced Repetition Modal", "open-spaced-repetition-modal", false )
+        api.add_menu_item( "spaced-repetition", api.require("./calendar-time.svg"), "Open Spaced Repetition Modal", "open-spaced-repetition-modal", false )
 
     }
 
@@ -53,7 +62,7 @@ class SpacedRepetition {
         async init() {
             await this.add_flashcards()
 
-            let component = await require("./index.vue")
+            let component = await api.require("./index.vue")
 
             /*
             this.api.add_box( "spaced-repetition-plugin", component, {
@@ -108,4 +117,5 @@ class SpacedRepetition {
 
 }
 
-module.exports = SpacedRepetition
+// module.exports = SpacedRepetition
+new SpacedRepetition()

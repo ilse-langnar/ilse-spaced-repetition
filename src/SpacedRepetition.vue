@@ -1,5 +1,5 @@
 <template lang="pug" >
-.spaced-repetition
+.spaced-repetition.ilse-modal
     br
 
     .columns

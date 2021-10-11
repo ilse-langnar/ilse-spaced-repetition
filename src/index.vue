@@ -2,13 +2,16 @@
 .spaced-repetition-plugin
 
     .front( v-show="location === 'front' " )
-        p.is-size-3(v-if="today && today[pointer]") {{today[pointer]}}
 
+        p.is-size-3.centered-text(v-if="today && today[pointer]" ) {{today[pointer]}}
+
+        .clear
         button.button( @click="flip" ) Reveal( SPC )
+        img.img( src="@/assets/images/plus.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="open_file(today[pointer])" title="Open file" )
 
-
-        input.input( v-if="is_cloze" v-model="user_cloze_input" ) 
-        button.button( v-if="is_cloze" @click="compare_cloze" @keydown.enter="compare_cloze" ) Check
+        // p {{today[pointer]}}
+        input.input( v-if="is_cloze" v-model="user_cloze_input" @keydown.enter="compare_cloze" ) 
+        img.img( v-if="is_cloze" src="./checks.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="compare_cloze" title="Check" )
         .cloze-final( v-if="cloze_stage === 'final' " )
             p( v-if="is_cloze" ) Distance: {{distance}}
             p {{cloze}}
@@ -16,22 +19,24 @@
             p {{user_cloze_input}}
 
     .back( v-show="location === 'back' " )
-        p.is-size-3 {{today[pointer]}}
+        p.is-size-3.centered-text {{today[pointer]}}
 
-        component( v-if="box.id && box.get_component()" :is="box.get_component()" :box="box" :key="box.id" )
+        // component( v-if="box.id && box.get_component()" :is="box.get_component()" :box="box" :key="today[pointer]" )
+        component( v-show="box.id" :is="box.get_component()" :box="box" :key="box.id" )
 
-        // textarea( ref="textarea" )
-
-        button.button( @click="add_review(5)" ) Very Easy(1)
-        button.button( @click="add_review(4)" ) Easy(2)
+        button.button( @click="add_review(1)" ) Very Hard(1)
+        button.button( @click="add_review(2)" ) Hard(2)
         button.button( @click="add_review(3)" ) Good(3)
-        button.button( @click="add_review(2)" ) Hard(4)
-        button.button( @click="add_review(1)" ) Very Hard(2)
+        button.button( @click="add_review(4)" ) Easy(4)
+        button.button( @click="add_review(5)" ) Very Easy(5)
 
         br
-        br
 
-        button.button( @click="next" ) Skip
+        br
+        img.img( src="./arrow-right.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="next" title="Skip" )
+        br
+        // button.button( @click="next" ) Skip
+        // button.button( @click="test" ) test
 
     br
 
@@ -41,6 +46,7 @@
 const printf                                                    = console.log;
 
 const { supermemo } = require('supermemo')
+import shuffle_array from "./shuffle-array.js"
 
 export default {
 
@@ -70,6 +76,8 @@ export default {
             distance: -1,
             cloze_stage: "init",
             box: {},
+
+            focused_box: {},
         }
 
     },
@@ -80,6 +88,42 @@ export default {
 
     methods: {
 
+        open_file( file ) {
+
+            // where to add
+            // let focused_column  = this.plugin.get_focused_column()
+
+
+            // let focused_box = this.plugin.get_focused_box()
+            let column = this.plugin.focused.column
+            printf( "column -> ", column )
+            // printf( "focused_box -> ", focused_box )
+
+            // class
+            let Box             = this.plugin.classes.Box
+
+            // instance
+            let box             = new Box({
+                props: {
+                    file: file
+                }
+            })
+
+            // focused_box.set_file( file )
+
+            // this.plugin.add_box_to_focused_column( box )
+            column.add_box(box)
+
+        },
+
+        // <-------------------------> Test <-------------------------> //
+        test() {
+            this.box.id = Math.random()
+        },
+        // <-------------------------> Test <-------------------------> //
+
+
+        // <-------------------------> ??? <-------------------------> //
         set_box() {
 
             let _this = this
@@ -87,15 +131,18 @@ export default {
 
             let box   = new this.plugin.classes.Box({ type: "text-editor", props: { file: file  }})
                 this.box = box
+            this.plugin.focus_on_box( box )
 
-            setTimeout( () => { _this.box.id = Math.random() }, 1000 )
+            // setTimeout( () => { _this.box.id = Math.random() }, 1000 )
+            this.test()
 
             return box
         },
+        // <-------------------------> ??? <-------------------------> //
 
 
         // <-------------------------> Utils <-------------------------> //
-         levenshtein( str1 = '', str2 = '' ) {
+        levenshtein( str1 = '', str2 = '' ) {
 
              const track = Array(str2.length + 1).fill(null).map(() =>
                      Array(str1.length + 1).fill(null));
@@ -188,25 +235,11 @@ export default {
                 this.cloze              = ""
 
             // BUGFIX: Update the content of the note, and don't stick with the last one
-                let _this = this
-                setTimeout( () => { _this.box.id = Math.random() }, 1000 )
+                this.set_box()
 
             this.save()
         },
         // <-------------------------> Movement <-------------------------> //
-
-
-        // <-------------------------> Utils <-------------------------> //
-        get_card_schedule( card ) {
-
-            if( this.data.schedules[card] ) {
-                return this.data.schedules[card]
-            } else {
-                return null
-            }
-
-        },
-        // <-------------------------> Utils <-------------------------> //
 
 
         // <-------------------------> Saving <-------------------------> //
@@ -222,6 +255,16 @@ export default {
 
 
         // <-------------------------> Schedule <-------------------------> //
+        get_card_schedule( card ) {
+
+            if( this.data.schedules[card] ) {
+                return this.data.schedules[card]
+            } else {
+                return null
+            }
+
+        },
+
         add_schedule( card, supermemo_item ) {
 
             let schedule = this.get_card_schedule( card )
@@ -274,20 +317,22 @@ export default {
 
             let result = supermemo(supermemo_item, grade)
                 result.answer_time = new Date().getTime() - this.answer_time // For Statistics
+
             this.add_schedule( card, result )
             this.next()
 
         },
         // <-------------------------> Review Card <-------------------------> //
 
+
         // <-------------------------> Card <-------------------------> //
         reveal_front() {
+            this.set_box()
             this.location = 'front'
         },
 
         reveal_back() {
             this.location = 'back'
-            // await this.init_editor()
         },
 
         flip() {
@@ -332,12 +377,17 @@ export default {
                 */
 
             }
-            this.today = this.shuffle_array(this.today)
 
-            this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
-            this.check_is_cloze( this.content )
+            // RANDOM
+                this.today = shuffle_array(this.today)
+
+            // Is Cloze
+                this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
+                this.check_is_cloze( this.content )
 
             this.set_box()
+            // setTimeout( () => { this.decay_cards_today() }, 2000 )
+
 
             // UI
                 this.plugin.Messager.emit( "status-line", "set", "Getting today's flashcards: DONE" )
@@ -347,84 +397,6 @@ export default {
         // previous() {
             // this.pointer--
         // },
-
-        shuffle_array(array) {
-            let curId = array.length;
-            // There remain elements to shuffle
-            while (0 !== curId) {
-                // Pick a remaining element
-                let randId = Math.floor(Math.random() * curId);
-                curId -= 1;
-                // Swap it with the current element.
-                let tmp = array[curId];
-                array[curId] = array[randId];
-                array[randId] = tmp;
-
-            }
-            return array;
-
-        },
-
-        async init_editor() {
-
-             let HyperMD     = require('hypermd')
-             var textarea    = this.$refs.textarea
-         
-             if( this.editor ) {
-                 this.editor.toTextArea()
-
-             }
-             this.editor      = HyperMD.fromTextArea( textarea, {
-     
-                baseURI: "",
-
-                hmdInsertFile: {
-                    byPaste: true,
-                    byDrop: true, 
-                }
-             
-
-             })
-             let t = new this.plugin.TextEditor( this.editor, {
-
-                 props: {
-                     file: this.today[this.pointer]
-                 },
-             })
-
-            // this.editor.setOption( "tabSize", this.tab_size )
-            // this.editor.setOption( "indentUnit", this.indent_unit )
-            // this.editor.setOption( "indentWithTabs", this.indent_with_tabs )
-
-            this.editor.setOption( "mode", "emacs" )
-            this.editor.setOption( "styleActiveLine", this.style_active_line )
-            this.editor.setSize( "100%", "100%" )
-
-            this.editor.setOption( "mode", "text/markdown" )
-
-            // require( "codemirror/theme/monokai.css" )
-            this.editor.setOption( "theme", "monokai" )
-
-            if( !this.today[this.pointer] ) {
-                this.editor.setValue("ERROR")
-                return
-            }
-
-            this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
-            if( !this.content )  {
-                printf( `ERROR: ${this.today[this.pointer]} is not defined }` )
-                this.errors.push( `Error: ${this.today[this.pointer]}'s content is null'` )
-                this.next()
-            }
-
-            this.editor.setValue(this.content)
-
-
-            // this.editor.setOption( "lineNumbers", true )
-            // this.editor.setOption( "line", false )
-
-
-        },
 
         decay_all_card_schedules() {
 
@@ -478,7 +450,6 @@ export default {
                 // Already decayed today
                 printf( "Already decayed today" )
             } else {
-                printf( "NOT decayed today" )
                 this.decay_all_card_schedules()
                 this.data.decay_history.push( today_date )
             }
@@ -488,6 +459,15 @@ export default {
         },
 
         setup() {
+
+            this.plugin.Messager.on( "~plugin", (action, payload) => {
+                if( action === "focus-on-box" ) {
+                    printf( "@@@focus-on-box -> payload -> ", payload )
+                    this.focused_box = payload
+                }
+
+            })
+
             this.set_cards_for_today()
             setTimeout( () => { this.decay_cards_today() }, 2000 )
         },
@@ -502,13 +482,19 @@ export default {
 </script>
 <style scoped>
 
-.spaced-repetition-plugin {
-    height: 400px;
-    overflow: auto;
+.clear {
+    clear: both;
+    height: 20px;
+
 }
 
-.Codemirror {
-    font-family: 'Inter', sans;
+.centered-text {
+    text-align: center;
+    width: 100%;
+}
+
+.spaced-repetition-plugin {
+    cursor: alias;
 }
 
 </style>
