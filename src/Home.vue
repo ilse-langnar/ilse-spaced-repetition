@@ -1,28 +1,93 @@
 <template lang="pug" >
-.spaced-repetition-plugin
+.spaced-repetition
 
-    .front( v-show="location === 'front' " )
+    p.is-size-1 Flashcards
+    p.is-size-3 335 Cards due today: {{get_today_date()}}
+
+    button.button.is-active( @click="open_flashcards_modal" ) Start
+    button.button( @click="open_flashcards_configuration_modal" ) Configuration
+    br
+    // button.button Open here
+
+    // .spaced-repetition
+
+        Download.import.is-pulled-left( title="Import Decks" )
+        .options
+            // Decks/add/browser
+            Card
+            Plus
+            Browser
+
+        // hr
+
+        .main
+            p.is-size-1 Decks
+
+
+        .columns( v-if="decks.length" )
+            .column.is-8
+
+            .column.is-1
+                p.is-size-5.has-text-weight-bold Due
+            .column.is-1
+                p.is-size-5.has-text-weight-bold New
+            .column.is-1
+                p.is-size-5.has-text-weight-bold Total
+
+        .deck( v-for="( deck, index ) in decks" :key="index" style="height: 60px; border: 1px solid #aaa; border-radius: 6px; margin-bottom: 10px; " )
+
+            .columns
+                .column.is-8
+                    p.is-size-5 {{deck.name}}
+
+                // Due
+                .column.is-1
+                    p.is-size-4 2
+
+                // New
+                .column.is-1
+                    p.is-size-4 10
+
+                // Total
+                .column.is-1
+                    p.is-size-4 10
+
+                .column.is-1
+                    Settings.is-pulled-right.setting( title="Deck Settings" )
+
+        .no-deck( v-if="!decks.length" style="margin: 0 auto;")
+            p.is-size-2.has-text-centered You don't have any decks.
+
+
+        br
+        .clear
+        button.button( @click="add_new_deck" ) Create Deck
+        ChartBar
+
+
+
+    // .front( v-show="location === 'front' " )
 
         p.is-size-3.centered-text(v-if="today && today[pointer]" ) {{today[pointer]}}
 
         .clear
         button.button( @click="flip" ) Reveal( SPC )
-        img.img( src="@/assets/images/plus.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="open_file(today[pointer])" title="Open file" )
+        Plus( style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="open_file(today[pointer])" title="Open file" )
 
         // p {{today[pointer]}}
         input.input( v-if="is_cloze" v-model="user_cloze_input" @keydown.enter="compare_cloze" ) 
-        img.img( v-if="is_cloze" src="./checks.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="compare_cloze" title="Check" )
+        Checks( v-if="is_cloze" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="compare_cloze" title="Check" )
         .cloze-final( v-if="cloze_stage === 'final' " )
             p( v-if="is_cloze" ) Distance: {{distance}}
             p {{cloze}}
-            img.img( v-if="is_cloze" src="@/assets/images/equal.svg" )
+            Equal( v-if="is_cloze" )
             p {{user_cloze_input}}
 
     .back( v-show="location === 'back' " )
         p.is-size-3.centered-text {{today[pointer]}}
 
         // component( v-if="box.id && box.get_component()" :is="box.get_component()" :box="box" :key="today[pointer]" )
-        component( v-show="box.id" :is="box.get_component()" :box="box" :key="box.id" )
+        // component( v-show="box.id" :is="box.get_component()" :box="box" :key="box.id" )
 
         button.button( @click="add_review(1)" ) Very Hard(1)
         button.button( @click="add_review(2)" ) Hard(2)
@@ -33,7 +98,7 @@
         br
 
         br
-        img.img( src="./arrow-right.svg" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="next" title="Skip" )
+        ArrowRight( style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="next" title="Skip" )
         br
         // button.button( @click="next" ) Skip
         // button.button( @click="test" ) test
@@ -45,15 +110,56 @@
 // eslint-disable-next-line
 const printf                                                    = console.log;
 
-const { supermemo } = require('supermemo')
-import shuffle_array from "./shuffle-array.js"
+// Plugin
+class MyPlugin extends Plugin {
 
+    constructor() {
+        super()
+    }
+
+}
+
+// Utils
+    import shuffle_array            from "./shuffle-array.js"
+
+// SVG
+    import Plus                     from "./assets/plus.svg"
+    import Checks                   from "./assets/checks.svg"
+    import Equal                    from "./assets/equal.svg"
+    import ArrowRight               from "./assets/arrow-right.svg"
+    import Download                 from "./assets/download.svg"
+    import Settings                 from "./assets/settings.svg"
+    import ChartBar                 from "./assets/chart-bar.svg"
+    import Browser                  from "./assets/browser.svg"
+    import Card                     from "./assets/card.svg"
+
+// Libs
+    const { supermemo } = require('supermemo')
+
+
+// export default {
 export default {
 
-    name: "SpacedRepetitionPluginV1",
+    name: "SpacedRepetitionHome",
+
+    components: {
+        Plus,
+        Checks,
+        Equal,
+        ArrowRight,
+        Download,
+        Settings,
+        ChartBar,
+        Browser,
+        Card,
+    },
 
     data() {
+
         return {
+            decks: [],
+
+            plugin: new MyPlugin(),
 
             location: 'front',
 
@@ -82,11 +188,46 @@ export default {
 
     },
 
-    props: {
-        plugin: { type: Object, required: false },
-    },
+    // props: {
+        // plugin: { type: Object, required: false },
+    // },
 
     methods: {
+
+        open_flashcards_modal() {
+
+            let box = new this.plugin.classes.Box({
+                type: "spaced-repetition"
+            })
+
+            // this.plugin.prepend_box(box)
+            // this.plugin.open_modal( "spaced-repetition" )
+
+            this.plugin.run_command( "open-spaced-repetition-modal" )
+            // this.plugin.run_command( "open-search-files-modal" )
+        },
+
+        open_flashcards_configuration_modal() {
+            this.plugin.run_command( "open-search-files-modal" )
+        },
+
+
+        get_today_date() {
+
+            let currentDate     = new Date()
+            let cDay            = currentDate.getDate();
+            let cMonth          = currentDate.getMonth() + 1;
+            let cYear           = currentDate.getFullYear();
+            return `${cDay}/${cMonth}/${cYear}`
+        },
+
+        add_new_deck() {
+
+            this.decks.push({
+                name: Math.random().toString()
+            })
+
+        },
 
         open_file( file ) {
 
@@ -96,7 +237,6 @@ export default {
 
             // let focused_box = this.plugin.get_focused_box()
             let column = this.plugin.focused.column
-            printf( "column -> ", column )
             // printf( "focused_box -> ", focused_box )
 
             // class
@@ -425,7 +565,6 @@ export default {
 
         get_last_decay_date()  {
 
-            printf( "this.data -> ", this.data )
             let decay_history   = this.data.decay_history
             let last_decay
 
@@ -448,7 +587,6 @@ export default {
 
             if( last_decay === today_date ) {
                 // Already decayed today
-                printf( "Already decayed today" )
             } else {
                 this.decay_all_card_schedules()
                 this.data.decay_history.push( today_date )
@@ -460,6 +598,7 @@ export default {
 
         setup() {
 
+            /*
             this.plugin.Messager.on( "~plugin", (action, payload) => {
                 if( action === "focus-on-box" ) {
                     printf( "@@@focus-on-box -> payload -> ", payload )
@@ -470,6 +609,7 @@ export default {
 
             this.set_cards_for_today()
             setTimeout( () => { this.decay_cards_today() }, 2000 )
+            */
         },
 
     },
@@ -493,8 +633,18 @@ export default {
     width: 100%;
 }
 
-.spaced-repetition-plugin {
+.spaced-repetition {
     cursor: alias;
+    width: 99%;
+}
+
+.spaced-repetition .import {
+    margin-left: 10px;
+}
+
+
+.setting {
+    cursor: pointer;
 }
 
 </style>

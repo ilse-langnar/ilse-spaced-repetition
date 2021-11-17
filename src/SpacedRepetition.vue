@@ -4,36 +4,35 @@
 
     .columns
         .column.is-2.sections
-            p Sections:
 
             .item( :style="get_option_style('review')" @click="select_option('review')" )
-                img.img( src="./eye.svg" title="" )
+                Eye
                 p Review
 
             .item( :style="get_option_style('cards')" @click="select_option('cards')" )
-                img.img( src="./card.svg" title="" )
+                Card
                 p Cards
 
             .item( :style="get_option_style('scan')" @click="select_option('scan')" )
-                img.img( src="./list-search.svg" title="" )
+                ListSearch
                 p Scan
 
             .item( :style="get_option_style('schedules')" @click="select_option('schedules')" )
-                img.img( src="./calendar-time.svg" title="" )
+                CalendarTime
                 p Schedules
 
             .item( :style="get_option_style('statistics')" @click="select_option('statistics')"  )
-                img.img( src="./chart-bar.svg" title="" )
+                ChartBar
                 p Statistics
 
             .item( :style="get_option_style('knowledge-tree')" @click="select_option('knowledge-tree')" )
-                img.img( src="@/assets/images/git-tree.svg" title="" )
+                GitTree
                 p Knowledge Tree
 
         .column.is-10
 
             .option( v-if="selected_option === 'review' " )
-                index( :plugin="plugin" :box="box" )
+                Review
 
             .option( v-if="selected_option === 'cards' " )
                 p.is-size-1 Cards
@@ -46,27 +45,45 @@
 // eslint-disable-next-line
 const printf                        = console.log;
 
+class MyPlugin extends Plugin {
 
-import index from "./index.vue"
+    constructor() {
+        super()
+    }
+
+}
+
+// Components
+    import Review           from "./Review.vue"
+
+// SVG 
+    import Eye              from "./assets/eye.svg"
+    import Card             from "./assets/card.svg"
+    import ListSearch       from "./assets/list-search.svg"
+    import CalendarTime     from "./assets/calendar-time.svg"
+    import ChartBar         from "./assets/chart-bar.svg"
+    import GitTree          from "./assets/git-tree.svg"
 
 export default {
 
-    name: "SpacedRepetitionPlugin",
+    name: "SpacedRepetitionPluginReview",
 
     data() {
         return {
+            plugin: new MyPlugin(),
             selected_option: "review",
             cards: [],
         }
     },
 
-    props: {
-        plugin: { type: Object, required: false },
-        box: { type: Object, required: false },
-    },
-
     components: {
-        index,
+        Review,
+        Eye,
+        Card,
+        ListSearch,
+        CalendarTime,
+        ChartBar,
+        GitTree,
     },
 
     computed: {
@@ -95,14 +112,12 @@ export default {
 
         async init() {
             let data = await this.plugin.load()
-            printf( "typeof data -> ", typeof data )
-            printf( "data -> ", data )
             this.cards = data.files
 
         },
 
         setup() {
-            this.init()
+            // this.init()
         },
 
     },
@@ -113,4 +128,6 @@ export default {
 
 }
 </script>
-<style src="@/assets/css/style.css"></style>
+<style>
+
+</style>
