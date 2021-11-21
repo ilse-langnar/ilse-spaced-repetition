@@ -3,15 +3,10 @@
 
     .front( v-show="location === 'front' " )
 
-        p.is-size-3.centered-text(v-if="today && today[pointer]" style="margin-top: 22%;") {{today[pointer]}}
+        p.is-size-3.centered-text(v-if="today && today[pointer]" style="margin-top: 22%;") {{today[pointer].replace( ".md", "" )}}
 
-        input.input( v-if="is_cloze" v-model="user_cloze_input" @keydown.enter="compare_cloze" ) 
-        button.button( v-if="is_cloze" @click="compare_cloze" title="Check" ) Check
-        .cloze-final( v-if="cloze_stage === 'final' " )
-            p( v-if="is_cloze" ) Distance: {{distance}}
-            p {{cloze}}
-            Equal( v-if="is_cloze" )
-            p {{user_cloze_input}}
+        // Cloze( :content="content" @check="on_cloze_check" )
+        Cloze( :content="content" )
 
         .space
 
@@ -23,8 +18,6 @@
         // component( v-if="box.id" :is="box.get_component()" :box="box" :key="key" style="border: 1px solid #454545; border-radius: 2px; margin-top: 22%; " )
 
         #markdown
-
-        .space
 
         button.review.button.is-danger.is-light( @click="add_review(1)" ) Very Hard(1)
         button.review.button.is-warning.is-light( @click="add_review(2)" ) Hard(2)
@@ -55,10 +48,10 @@ class MyPlugin extends Plugin { constructor() { super() } }
     const marked                    = require('marked')
 
 // Utils/Functions
-    import levenshtein              from "./utils/levenshtein.js"
     import shuffle_array            from "./utils/shuffle-array.js"
 
 // Components
+    import Cloze                    from "./Cloze.vue"
 
 
 export default {
@@ -71,7 +64,6 @@ export default {
             plugin: new MyPlugin(),
 
             location: 'front',
-            editor: null,
             pointer: 0,
             content: "",
 
@@ -81,27 +73,21 @@ export default {
 
             data: {},
 
-            // Cloze
-            is_cloze: false,
-            user_cloze_input: "",
-            cloze: "",
-            distance: -1,
-            cloze_stage: "init",
-
-
             box: {},
         }
     },
 
     components: {
         Equal,
+        Cloze,
     },
 
-    computed: {
-
-    },
 
     methods: {
+
+        on_cloze_check() {
+            this.flip()
+        },
 
         open_file( file ) {
 
@@ -159,73 +145,6 @@ export default {
         },
         // <-------------------------> ??? <-------------------------> //
 
-
-        // <-------------------------> Utils <-------------------------> //
-        /*
-        levenshtein( str1 = '', str2 = '' ) {
-
-             const track = Array(str2.length + 1).fill(null).map(() =>
-                     Array(str1.length + 1).fill(null));
-             for (let i = 0; i <= str1.length; i += 1) {
-                 track[0][i] = i;
-
-             }
-             for (let j = 0; j <= str2.length; j += 1) {
-                 track[j][0] = j;
-
-             }
-             for (let j = 1; j <= str2.length; j += 1) {
-                 for (let i = 1; i <= str1.length; i += 1) {
-                     const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
-                     track[j][i] = Math.min(
-                             track[j][i - 1] + 1, // deletion
-                             track[j - 1][i] + 1, // insertion
-                             track[j - 1][i - 1] + indicator, // substitution
-
-                             );
-
-                 }
-
-             }
-             return track[str2.length][str1.length];
-
-        },
-        */
-        // <-------------------------> Utils <-------------------------> //
-
-
-        // <-------------------------> Cloze <-------------------------> //
-        compare_cloze() {
-
-            let user_input              = this.user_cloze_input
-
-            let cloze_actual_content    = this.content.split("{{c1::")
-            let cloze                   = cloze_actual_content[1]
-
-            let normalized_cloze        = cloze.replace( "}}", "" )
-                this.cloze                  = normalized_cloze
-
-            let distance = levenshtein( user_input, normalized_cloze )
-                this.distance = distance
-
-            this.cloze_stage = "final"
-
-        },
-
-        check_is_cloze( content ) {
-
-            if( !content ) return 
-            if( !content.indexOf ) return
-
-            if( content.indexOf("{{c1::") !== -1 )  {
-                this.is_cloze = true
-                this.plugin.set_mode("Insert")
-            }
-
-        },
-        // <-------------------------> Cloze <-------------------------> //
-
-
         // <-------------------------> Movement <-------------------------> //
         previous() {
 
@@ -247,12 +166,10 @@ export default {
 
             // Is Cloze?
                 this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
-                this.check_is_cloze( this.content )
 
             // Cloze
                 this.user_cloze_input   = ""
                 this.cloze_stage        = "init"
-                this.is_cloze           = false
                 this.cloze              = ""
 
             // BUGFIX: Update the content of the note, and don't stick with the last one
@@ -302,6 +219,8 @@ export default {
                 repetition: supermemo_item.repetition,
                 efactor: supermemo_item.efactor,
             }
+
+            printf( "add_schedule -> this.data.schedules[card] -> ", this.data.schedules[card] )
 
             this.data.schedules[card].reviews.push(supermemo_item)
 
@@ -407,7 +326,6 @@ export default {
 
             // Is Cloze
                 this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
-                this.check_is_cloze( this.content )
 
             this.set_box()
             // setTimeout( () => { this.decay_cards_today() }, 2000 )
@@ -501,7 +419,7 @@ export default {
 <style scoped >
 
 .space {
-    height: 100px;
+    height: 60px;
     clear: both;
 }
 
