@@ -1,7 +1,7 @@
 // import { VueLoaderPlugin  } = require('vue-loader')
 const VueLoaderPlugin = require( "vue-loader" ).VueLoaderPlugin
 const path = require('path');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 
 module.exports = {
@@ -58,6 +58,7 @@ module.exports = {
         // make sure to include the plugin!
         new VueLoaderPlugin(),
 
+        /*
         new ImageMinimizerPlugin({
           minimizerOptions: {
             plugins: [
@@ -76,6 +77,7 @@ module.exports = {
             ],
           },
         }),
+        */
 
 
 

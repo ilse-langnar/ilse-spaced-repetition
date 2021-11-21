@@ -9,9 +9,13 @@
                 Eye
                 p Review
 
-            .item( :style="get_option_style('cards')" @click="select_option('cards')" )
+            .item( :style="get_option_style('files')" @click="select_option('files')" )
                 Card
-                p Cards
+                p Files
+
+            .item( :style="get_option_style('decks')" @click="select_option('decks')" )
+                Card
+                p Decks
 
             .item( :style="get_option_style('scan')" @click="select_option('scan')" )
                 ListSearch
@@ -34,12 +38,37 @@
             .option( v-if="selected_option === 'review' " )
                 Review
 
-            .option( v-if="selected_option === 'cards' " )
-                p.is-size-1 Cards
-                .loop( v-for="( card, index ) in cards" :key="index" )
-                    p card: {{card}}
+            .option( v-if="selected_option === 'files' " )
+                p.is-size-1 Files( cards )
+                .loop( v-for="( card, index ) in data.files" :key="index" )
+                    p.item {{card}}
+
+            .option( v-if="selected_option === 'decks' " )
+                p.is-size-1 Decks
+
+            .option( v-if="selected_option === 'scan' " )
+                p.is-size-1 Scan
+                p.is-size-5 What tag marks you flashcards?( e.g #flashcard, #leitner-box, #spaced-repetition ) 
+
+                select( v-model="scan_tag" )
+                    option( v-for="( tag, index ) in Object.keys(plugin.tags)" :value="tag" ) {{tag}}
+                br
+                button.button( v-if="scan_tag" @click="run_scanner" ) import files
+                .importing-files
+                    .loop( v-for="( file, index ) in scan_queue" :key="index" )
+                        p {{file}} OK
 
 
+            .option( v-if="selected_option === 'schedules' " )
+                p.is-size-1 Schedules
+                p Keys:: {{Object.keys(data)}}
+                p Schedules:: {{data.schedules}}
+
+            .option( v-if="selected_option === 'statistics' " )
+                p.is-size-1 Statistics
+
+            .option( v-if="selected_option === 'knowledge-tree' " )
+                p.is-size-1 Knowledge Tree
 </template>
 <script>
 // eslint-disable-next-line
@@ -66,13 +95,17 @@ class MyPlugin extends Plugin {
 
 export default {
 
-    name: "SpacedRepetitionPluginReview",
+    name: "SpacedRepetitionPlugin",
 
     data() {
         return {
+            scan_tag: "",
+            scan_queue: [],
+            cards: [],
+
+            data: {},
             plugin: new MyPlugin(),
             selected_option: "review",
-            cards: [],
         }
     },
 
@@ -92,6 +125,24 @@ export default {
 
     methods: {
 
+        // TODO: move this to Scanner.vue
+        run_scanner() {
+
+            let tags = this.plugin.tags[this.scan_tag]
+
+            for( const tag of tags ) {
+                this.scan_queue.push( tag )
+            }
+
+            let data = {
+                files: this.scan_queue,
+                schedules: [],
+                decay_history: [],
+            }
+
+            this.plugin.save( data, true )
+
+        },
 
         // <---------------------> Selecting <---------------------> //
         select_option( option ) {
@@ -111,13 +162,11 @@ export default {
         // <---------------------> Selecting <---------------------> //
 
         async init() {
-            let data = await this.plugin.load()
-            this.cards = data.files
-
+            this.data = await this.plugin.load()
         },
 
         setup() {
-            // this.init()
+            this.init()
         },
 
     },

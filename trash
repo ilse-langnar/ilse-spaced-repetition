@@ -1,0 +1,57 @@
+
+    .spaced-repetition
+
+        Download.import.is-pulled-left( title="Import Decks" )
+        .options
+            // Decks/add/browser
+            Card
+            Plus
+            Browser
+
+        // hr
+
+        .main
+            p.is-size-1 Decks
+
+
+        .columns( v-if="decks.length" )
+            .column.is-8
+
+            .column.is-1
+                p.is-size-5.has-text-weight-bold Due
+            .column.is-1
+                p.is-size-5.has-text-weight-bold New
+            .column.is-1
+                p.is-size-5.has-text-weight-bold Total
+
+        .deck( v-for="( deck, index ) in decks" :key="index" style="height: 60px; border: 1px solid #aaa; border-radius: 6px; margin-bottom: 10px; " )
+
+            .columns
+                .column.is-8
+                    p.is-size-5 {{deck.name}}
+
+                // Due
+                .column.is-1
+                    p.is-size-4 2
+
+                // New
+                .column.is-1
+                    p.is-size-4 10
+
+                // Total
+                .column.is-1
+                    p.is-size-4 10
+
+                .column.is-1
+                    Settings.is-pulled-right.setting( title="Deck Settings" )
+
+        .no-deck( v-if="!decks.length" style="margin: 0 auto;")
+            p.is-size-2.has-text-centered You don't have any decks.
+
+
+        br
+        .clear
+        button.button( @click="add_new_deck" ) Create Deck
+        ChartBar
+
+

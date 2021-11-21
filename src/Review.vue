@@ -1,114 +1,65 @@
 <template lang="pug" >
 .review
 
-    p.is-size-1 Review
+    .front( v-show="location === 'front' " )
 
-    // .spaced-repetition
+        p.is-size-3.centered-text(v-if="today && today[pointer]" style="margin-top: 22%;") {{today[pointer]}}
 
-        Download.import.is-pulled-left( title="Import Decks" )
-        .options
-            // Decks/add/browser
-            Card
-            Plus
-            Browser
-
-        // hr
-
-        .main
-            p.is-size-1 Decks
-
-
-        .columns( v-if="decks.length" )
-            .column.is-8
-
-            .column.is-1
-                p.is-size-5.has-text-weight-bold Due
-            .column.is-1
-                p.is-size-5.has-text-weight-bold New
-            .column.is-1
-                p.is-size-5.has-text-weight-bold Total
-
-        .deck( v-for="( deck, index ) in decks" :key="index" style="height: 60px; border: 1px solid #aaa; border-radius: 6px; margin-bottom: 10px; " )
-
-            .columns
-                .column.is-8
-                    p.is-size-5 {{deck.name}}
-
-                // Due
-                .column.is-1
-                    p.is-size-4 2
-
-                // New
-                .column.is-1
-                    p.is-size-4 10
-
-                // Total
-                .column.is-1
-                    p.is-size-4 10
-
-                .column.is-1
-                    Settings.is-pulled-right.setting( title="Deck Settings" )
-
-        .no-deck( v-if="!decks.length" style="margin: 0 auto;")
-            p.is-size-2.has-text-centered You don't have any decks.
-
-
-        br
-        .clear
-        button.button( @click="add_new_deck" ) Create Deck
-        ChartBar
-
-
-
-    // .front( v-show="location === 'front' " )
-
-        p.is-size-3.centered-text(v-if="today && today[pointer]" ) {{today[pointer]}}
-
-        .clear
-        button.button( @click="flip" ) Reveal( SPC )
-        Plus( style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="open_file(today[pointer])" title="Open file" )
-
-        // p {{today[pointer]}}
         input.input( v-if="is_cloze" v-model="user_cloze_input" @keydown.enter="compare_cloze" ) 
-        Checks( v-if="is_cloze" style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="compare_cloze" title="Check" )
+        button.button( v-if="is_cloze" @click="compare_cloze" title="Check" ) Check
         .cloze-final( v-if="cloze_stage === 'final' " )
             p( v-if="is_cloze" ) Distance: {{distance}}
             p {{cloze}}
             Equal( v-if="is_cloze" )
             p {{user_cloze_input}}
 
+        .space
+
+        button.button( @click="flip" ) Reveal( SPC )
+        br
+
     .back( v-show="location === 'back' " )
-        p.is-size-3.centered-text {{today[pointer]}}
 
-        // component( v-if="box.id && box.get_component()" :is="box.get_component()" :box="box" :key="today[pointer]" )
-        // component( v-show="box.id" :is="box.get_component()" :box="box" :key="box.id" )
+        // component( v-if="box.id" :is="box.get_component()" :box="box" :key="key" style="border: 1px solid #454545; border-radius: 2px; margin-top: 22%; " )
 
-        button.button( @click="add_review(1)" ) Very Hard(1)
-        button.button( @click="add_review(2)" ) Hard(2)
-        button.button( @click="add_review(3)" ) Good(3)
-        button.button( @click="add_review(4)" ) Easy(4)
-        button.button( @click="add_review(5)" ) Very Easy(5)
+        #markdown
+
+        .space
+
+        button.review.button.is-danger.is-light( @click="add_review(1)" ) Very Hard(1)
+        button.review.button.is-warning.is-light( @click="add_review(2)" ) Hard(2)
+        button.review.button.is-light( @click="add_review(3)" ) Good(3)
+        button.review.button.is-info.is-light( @click="add_review(4)" ) Easy(4)
+        button.review.button.is-success.is-light( @click="add_review(5)" ) Very Easy(5)
 
         br
-
+        button.skip.button.is-light.is-pulled-right( @click="next" title="Skip card" ) Skip(Return)
         br
-        ArrowRight( style="width: 40px; cursor: pointer; border: 1px solid #aaa; border-radius: 10px; " @click="next" title="Skip" )
-        br
-        // button.button( @click="next" ) Skip
-        // button.button( @click="test" ) test
 
     br
-
 
 </template>
 <script>
 // eslint-disable-next-line
 const printf                        = console.log;
 
+// This is how I get access to the plugin API, Via plugin: new MyPlugin() then use plugin.add_command({ <bla> })
 class MyPlugin extends Plugin { constructor() { super() } }
 
+
 // SVG
-    import ArrowRight               from "./assets/arrow-right.svg"
+    import Equal                    from "./assets/equal.svg"
+
+// Libs
+    const { supermemo }             = require('supermemo')
+    const marked                    = require('marked')
+
+// Utils/Functions
+    import levenshtein              from "./utils/levenshtein.js"
+    import shuffle_array            from "./utils/shuffle-array.js"
+
+// Components
+
 
 export default {
 
@@ -116,17 +67,13 @@ export default {
 
     data() {
         return {
-            decks: [],
-
+            key: 0,
             plugin: new MyPlugin(),
 
             location: 'front',
-
             editor: null,
             pointer: 0,
             content: "",
-
-            errors: [],
 
             answer_time: +new Date(),
 
@@ -140,14 +87,14 @@ export default {
             cloze: "",
             distance: -1,
             cloze_stage: "init",
-            box: {},
 
-            focused_box: {},
+
+            box: {},
         }
     },
 
     components: {
-        ArrowRight,
+        Equal,
     },
 
     computed: {
@@ -155,14 +102,6 @@ export default {
     },
 
     methods: {
-
-        add_new_deck() {
-
-            this.decks.push({
-                name: Math.random().toString()
-            })
-
-        },
 
         open_file( file ) {
 
@@ -172,7 +111,6 @@ export default {
 
             // let focused_box = this.plugin.get_focused_box()
             let column = this.plugin.focused.column
-            // printf( "focused_box -> ", focused_box )
 
             // class
             let Box             = this.plugin.classes.Box
@@ -184,16 +122,14 @@ export default {
                 }
             })
 
-            // focused_box.set_file( file )
-
             // this.plugin.add_box_to_focused_column( box )
             column.add_box(box)
 
         },
 
         // <-------------------------> Test <-------------------------> //
-        test() {
-            this.box.id = Math.random()
+        update() {
+            this.key = Math.random() 
         },
         // <-------------------------> Test <-------------------------> //
 
@@ -204,12 +140,20 @@ export default {
             let _this = this
             let file  = this.today[this.pointer]
 
-            let box   = new this.plugin.classes.Box({ type: "text-editor", props: { file: file  }})
-                this.box = box
-            this.plugin.focus_on_box( box )
+            let box   = new this.plugin.classes.Box({
+                type: "text-editor",
+                props: { file: file }
+            })
+
+            this.box = box
+
+            this.update()
+
+            let markdown = marked.parse( this.content )
+            printf( "markdown -> ", markdown )
+            document.getElementById('markdown').innerHTML = markdown
 
             // setTimeout( () => { _this.box.id = Math.random() }, 1000 )
-            this.test()
 
             return box
         },
@@ -217,6 +161,7 @@ export default {
 
 
         // <-------------------------> Utils <-------------------------> //
+        /*
         levenshtein( str1 = '', str2 = '' ) {
 
              const track = Array(str2.length + 1).fill(null).map(() =>
@@ -245,6 +190,7 @@ export default {
              return track[str2.length][str1.length];
 
         },
+        */
         // <-------------------------> Utils <-------------------------> //
 
 
@@ -259,7 +205,7 @@ export default {
             let normalized_cloze        = cloze.replace( "}}", "" )
                 this.cloze                  = normalized_cloze
 
-            let distance = this.levenshtein( user_input, normalized_cloze )
+            let distance = levenshtein( user_input, normalized_cloze )
                 this.distance = distance
 
             this.cloze_stage = "final"
@@ -426,7 +372,9 @@ export default {
         async set_cards_for_today() {
 
             this.data       = await this.plugin.load()
+            printf( "set_cards_for_today -> this.data -> ", this.data )
             let cards       = this.data.files
+            printf( "cards -> ", cards )
 
             // UI
                 this.plugin.Messager.emit( "status-line", "set", "Getting today's flashcards ..." )
@@ -454,7 +402,8 @@ export default {
             }
 
             // RANDOM
-                this.today = shuffle_array(this.today)
+                this.today = shuffle_array( this.today )
+                printf( "this.today -> ", this.today )
 
             // Is Cloze
                 this.content = await this.plugin.filesystem.file.get(this.today[this.pointer])
@@ -534,10 +483,11 @@ export default {
         async init() {
             let data = await this.plugin.load()
                 this.cards = data.files
+            this.set_cards_for_today()
         },
 
         setup() {
-            // this.init()
+            this.init()
         },
 
     },
@@ -548,6 +498,20 @@ export default {
 
 }
 </script>
-<style>
+<style scoped >
+
+.space {
+    height: 100px;
+    clear: both;
+}
+
+.review {
+    margin-left: 10px;
+
+}
+
+.skip {
+    margin-top: 10px;
+}
 
 </style>
